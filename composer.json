@@ -5,9 +5,6 @@
             "Weliton\\ApiShine\\": "src/"
         }
     },
-    "files":[
-        "config/config.php"
-    ],
     "authors": [
         {
             "name": "weliton",

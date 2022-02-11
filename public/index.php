@@ -1,28 +1,21 @@
 <?php
 
-use Weliton\ApiShine\Service\UserService;
+    namespace Weliton\ApiShine;
 
+use Weliton\ApiShine\Helper\RenderHtml;
 require '../vendor/autoload.php';
+class index
+{
+    use RenderHtml;
 
-    
+    public  function request()
+    {
+        echo $this->html('/teste.php',[
+            'nota' => 'teste',
+            'tituloPagina' => 'Lista Notas'
+        ]);
+    }
+}
 
-
-    // if($_GET['url']){
-    //     $url = explode('/',$_GET['url']);
-    //     var_dump($url);
-    //     if($url[0] === 'api'){
-    //         array_shift($url);
-    //         $service = 'Weliton\ApiShine\Service\\'.ucfirst($url[0].'Service');
-    //         array_shift($url);
-
-    //         $method = strtolower($_SERVER['REQUEST_METHOD']);
-
-    //         try{
-    //             $response =  call_user_func_array(array(new $service,$method),$url);
-    //             echo json_encode(array('status' => 'sucess','data' => $response));
-
-    //         }catch(\Exception $e){
-    //             echo "Error: ".$e->getMessage();           
-    //         }
-    //     }
-    // }
+$index = new index();
+$index->request();

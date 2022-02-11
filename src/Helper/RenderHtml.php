@@ -1,5 +1,5 @@
 <?php
-    namespace Weliton\ApiShine\Helper;
+   namespace Weliton\ApiShine\Helper;
 
 trait RenderHtml
 {
@@ -7,9 +7,9 @@ trait RenderHtml
     {
         extract($data);
         ob_start();
-        require __DIR__. '/../../view/'.$caminhoTemplate;
-        $html = ob_get_clean();
-        
-        return $html;
+         require __DIR__. '/../../view/'.$path;
+         $html = ob_get_clean();
+         
+         return $html;
     }
 }
