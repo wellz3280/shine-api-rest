@@ -6,7 +6,7 @@
         }
     },
     "files":[
-        "config.php"
+        "/config/config.php"
     ],
     "authors": [
         {
