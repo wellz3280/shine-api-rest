@@ -1,0 +1,18 @@
+{
+    "name": "weliton/api-shine",
+    "autoload": {
+        "psr-4": {
+            "Weliton\\ApiShine\\": "src/"
+        }
+    },
+    "files":[
+        "config.php"
+    ],
+    "authors": [
+        {
+            "name": "weliton",
+            "email": "welingtonzsilva@gmail.com"
+        }
+    ],
+    "require": {}
+}
