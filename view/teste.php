@@ -1,2 +1,4 @@
-<?php 
-  echo $tituloPagina; 
+<?php
+  
+  header('Content-Type: application/json');
+  echo $userJson;

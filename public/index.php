@@ -1,5 +1,6 @@
 <?php
 
+
 use Weliton\ApiShine\Controller\TesteController;
 
 require '../vendor/autoload.php';
