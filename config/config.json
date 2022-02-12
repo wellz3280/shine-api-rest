@@ -1,0 +1,7 @@
+{
+    "driver":"mysql",
+    "host": "localhost",
+    "dbname":"testShine",
+    "user": "root",
+    "pass":""
+}

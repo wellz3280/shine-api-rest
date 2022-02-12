@@ -5,6 +5,7 @@
             "Weliton\\ApiShine\\": "src/"
         }
     },
+    "files": "/config/config.json",
     "authors": [
         {
             "name": "weliton",
