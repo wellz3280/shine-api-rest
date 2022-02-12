@@ -14,17 +14,18 @@ class UserController implements InterfaceController
 
     public function request(): void
     {
-        $table = filter_input(INPUT_GET,'user');
+        $id = filter_input(INPUT_GET,'user',FILTER_VALIDATE_INT);
+
         $conn = new PDO("mysql:host=localhost;dbname=testShine",'root','');
         $sql = "SELECT * FROM user";
         $stmt = $conn->query($sql);
 
         if($stmt->rowCount() > 0){
            $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-            $json =  json_encode($result);
+            $json =  json_encode($result,JSON_UNESCAPED_UNICODE);
 
            echo $this->html('/teste.php',[
-            'table' => $table,
+            'table' => $id,
             'userJson' => $json,
             'tituloPagina' => 'Lista Notas'
         ]); 
