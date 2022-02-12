@@ -1,21 +1,12 @@
 <?php
 
-    namespace Weliton\ApiShine;
+use Weliton\ApiShine\Controller\TesteController;
 
-use Weliton\ApiShine\Helper\RenderHtml;
 require '../vendor/autoload.php';
-class index
-{
-    use RenderHtml;
+$path = $_SERVER['REQUEST_URI'];
 
-    public  function request()
-    {
-        echo $this->html('/teste.php',[
-            'nota' => 'teste',
-            'tituloPagina' => 'Lista Notas'
-        ]);
-    }
-}
+$routes = require __DIR__.'/../config/route.php';
 
-$index = new index();
-$index->request();
+$controllerClass = $routes[$path];
+$controller = new $controllerClass();
+$controller->request();
