@@ -60,6 +60,3 @@ class Connection
          }
     }
 }
-
-
-  $teste = new Connection();
