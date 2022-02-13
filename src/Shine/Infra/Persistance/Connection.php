@@ -6,40 +6,15 @@ use PDOException;
 
 class Connection
 {
-    private string $driver;
-    private string $dbname;
-    private string $host;
-    private string $user;
-    private string $pass;
-    
-    public function __construct()
+   
+    public static function connMysql():PDO
     {
         $json = file_get_contents(__DIR__.'/../../../../config/config.json');
         $data = json_decode($json);
-        
-        $this->driver = $data->driver;
-        $this->dbname = $data->dbname;
-        $this->host = $data->host;
-        $this->user = $data->user;
-        $this->pass = $data->pass;
-        
-        if($this->driver == 'mysql'){
-            $this->connMysql();
-        }
 
-        if($this->driver == 'Sqlite'){
-            $this->connSqlite();
-        }
-
-    }
-
-   
-
-    private function connMysql():PDO
-    {
         try{
             
-            $conn = new PDO("mysql:host={$this->host};dbname={$this->dbname}",$this->user,$this->pass);
+            $conn = new PDO("mysql:host={$data->host};dbname={$data->dbname}",$data->user,$data->pass);
             return $conn;
 
         }catch(PDOException $e){
@@ -47,12 +22,14 @@ class Connection
         }
     }
 
-    private function connSqlite():PDO
+    public static function connSqlite():PDO
     {
+        $json = file_get_contents(__DIR__.'/../../../../config/config.json');
+        $data = json_decode($json);
         
         try{
             
-            $conn = new PDO('sqlite:'.$this->dbname.'sqlite');
+            $conn = new PDO('sqlite:'.$data->path.$data->dbname.'.sqlite');
             return $conn;
  
          }catch(PDOException $e){
@@ -60,3 +37,5 @@ class Connection
          }
     }
 }
+
+$teste = Connection::connSqlite();
