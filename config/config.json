@@ -3,5 +3,6 @@
     "host": "localhost",
     "dbname":"testShine",
     "user": "root",
-    "pass":""
+    "pass":"",
+    "path":""
 }
