@@ -6,6 +6,7 @@ use Weliton\ApiShine\Controller\UserController;
 
 return[
         '/'=> HomeController::class,
+        '/home'=> HomeController::class,
         '/teste' => TesteController::class,
         '/user' => UserController::class
     ];

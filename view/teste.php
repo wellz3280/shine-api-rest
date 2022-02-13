@@ -1,6 +1,7 @@
 <?php
 
-  
-  header('Content-Type: application/json');
-  echo $userJson;
+   header('Content-Type: application/json');
+   echo $userJson;
+
+
 ?>
