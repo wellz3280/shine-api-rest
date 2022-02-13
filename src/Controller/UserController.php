@@ -10,13 +10,12 @@ use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
 class UserController implements InterfaceController
 {
     use RenderHtml;
-    private PDO $pdo;
 
     public function request(): void
     {
         $id = filter_input(INPUT_GET,'user',FILTER_VALIDATE_INT);
 
-        $conn = new PDO("mysql:host=localhost;dbname=testShine",'root','');
+        $conn = Connection::connMysql();
         $sql = "SELECT * FROM user";
         $stmt = $conn->query($sql);
 

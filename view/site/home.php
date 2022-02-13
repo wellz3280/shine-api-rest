@@ -4,7 +4,7 @@
         <?php echo $tituloPagina;?>
     </h1>
     
-     <a href="/user" target="_blank">link-teste</a>
+     <a href="/user" target="_blank">Usuarios</a>
 
     
 <?php include __DIR__.'/../endHtml.php'; ?>
