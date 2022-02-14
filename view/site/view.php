@@ -1,29 +1,45 @@
 <?php include __DIR__.'/../startHtml.php'; ?>
 
-<table class="table table-hover mt-3">
+<nav class="nav mt-4">
+  <a class="nav-link disabled" href="#"> Tabela <?= ucfirst($tituloPagina); ?></a>
+  <a class="nav-link" href="#">Adicionar </a>
+  <a class="nav-link" href="/<?= $tituloPagina; ?>">Json</a>
+  
+</nav>
+<!-- 
+    <p style="color:blue; font-size: 2em; text-transform:capitalize; margin-top:5px;">
+    Tabela .json</p> -->
+
+    <table class="table table-hover mt-3">
   <thead>
     <tr>
+    <?php  foreach($columns as $field): ?>
       
-      <th scope="col">Data Base</th>
-      <th scope="col">Vizualizar</th>
-      <th scope="col">Handle</th>
+      <th scope="col"><?= $field['Field']; ?></th>
+
+    <?php endforeach; ?>
+    <th scope="col">Ações</th>
     </tr>
   </thead>
   <tbody>
     
-<?php foreach($table as $tables): ?> 
-<tr>
+<?php foreach($data as $datas): ?> 
+<tr>  
+<?php  foreach($columns as $field): ?>
+
+      <td><?= $datas[$field['Field']]; ?></td>
+
+    <?php endforeach; ?>
         <td>
-                <a href="<?= $tables['Tables_in_testShine']; ?>" class="">
-                        <?= $tables['Tables_in_testShine']; ?>
-                </a>
+          <a href="" class="">delele</a> |
+          <a href="" class="">update</a>
         </td>
-        <td>Otto</td>
-        <td>@mdo</td>
+
 </tr>
 <?php endforeach; ?> 
    
   </tbody>
 </table>
+
 
 <?php include __DIR__.'/../endHtml.php'; ?>
