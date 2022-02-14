@@ -37,5 +37,3 @@ class Connection
          }
     }
 }
-
-$teste = Connection::connSqlite();
