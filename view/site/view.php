@@ -40,6 +40,6 @@
    
   </tbody>
 </table>
-
+<a href="/home" class="btn btn-light">Voltar</a>
 
 <?php include __DIR__.'/../endHtml.php'; ?>

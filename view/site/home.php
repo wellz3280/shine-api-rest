@@ -17,7 +17,7 @@
         <?= $tables['Tables_in_testShine']; ?>
       </td>
       <td>
-        <a href="/view?table=<?= $tables['Tables_in_testShine']; ?>" class="btn btn-dark">Vizualizar</a>
+        <a href="/view?table=<?= $tables['Tables_in_testShine']; ?>" class="btn btn-light">Vizualizar</a>
         <a href="/view?table=<?= $tables['Tables_in_testShine']; ?>" class="btn btn-danger">Delete</a>
       </td>
 </tr>
