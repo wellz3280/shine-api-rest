@@ -3,13 +3,9 @@
 <nav class="nav mt-4">
   <a class="nav-link disabled" href="#"> Tabela <?= ucfirst($tituloPagina); ?></a>
   <a class="nav-link" href="#">Adicionar </a>
-  <a class="nav-link" href="/<?= $tituloPagina; ?>">Json</a>
+  <a class="nav-link" href="/json?table=<?= $tituloPagina; ?>">Json</a>
   
 </nav>
-<!-- 
-    <p style="color:blue; font-size: 2em; text-transform:capitalize; margin-top:5px;">
-    Tabela .json</p> -->
-
     <table class="table table-hover mt-3">
   <thead>
     <tr>
@@ -27,11 +23,15 @@
 <tr>  
 <?php  foreach($columns as $field): ?>
 
-      <td><?= $datas[$field['Field']]; ?></td>
+      <td> <?= $datas[$field['Field']]; ?></td>
 
     <?php endforeach; ?>
-        <td>
-          <a href="" class="">delele</a> |
+    <td>
+<a href="/viewPlus?table=<?= $_GET['table'];?>&coluna=<?= $columnName ?>&id=<?= $datas[$columnName] ?>" class="">
+Vizualizar</a> |
+       
+         
+         <a href="" class="">delele</a> |
           <a href="" class="">update</a>
         </td>
 

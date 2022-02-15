@@ -1,14 +1,19 @@
 <?php
 
 use Weliton\ApiShine\Controller\HomeController;
+use Weliton\ApiShine\Controller\JsonController;
 use Weliton\ApiShine\Controller\TesteController;
 use Weliton\ApiShine\Controller\UserController;
 use Weliton\ApiShine\Controller\ViewController;
+use Weliton\ApiShine\Controller\ViewPlusController;
 
 return[
         '/'=> HomeController::class,
         '/home'=> HomeController::class,
-        '/teste' => TesteController::class,
+        '/json' => JsonController::class,
         '/user' => UserController::class,
-        '/view' => ViewController::class
+        '/view' => ViewController::class,
+        '/viewPlus' => ViewPlusController::class
     ];
+
+    

@@ -3,29 +3,32 @@
 
 use PDO;
 use Weliton\ApiShine\Helper\RenderHtml;
+use Weliton\ApiShine\Shine\Helper\TakeByIndex;
 use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
+use Weliton\ApiShine\Shine\Infra\Persistance\Select;
 
 class ViewController implements InterfaceController
 {
     use RenderHtml;
+    use TakeByIndex;
 
     public function request(): void
     {
-        $conn = Connection::connMysql();
+        $conn = Connection::startConn('mysql');
         $table = filter_input(INPUT_GET,'table',FILTER_SANITIZE_STRING);    
         
-        $sqlConlumns = "SHOW COLUMNS FROM {$table}";
-        $stmtColumns = $conn->query($sqlConlumns);
-        $resultColumns = $stmtColumns->fetchAll(PDO::FETCH_ASSOC);
+        $query = new Select($conn);
 
-        $sql = "SELECT * FROM {$table}";
-        $stml = $conn->query($sql);
-        $result = $stml->fetchAll(PDO::FETCH_ASSOC);
-
+        $result = $query->all($table);
+        $resultColumns =  $query->write("SHOW COLUMNS FROM {$table}");
+        $columnName = $this->takeByValue($resultColumns[0]);
+        
         echo $this->html('/site/view.php',[
             "tituloPagina" => $table,
             "data" => $result,
-            "columns" => $resultColumns
+            "columns" => $resultColumns,
+            "columnName" => $columnName[0]
+
         ]);
     
     }

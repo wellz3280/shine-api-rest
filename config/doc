@@ -1,0 +1,65 @@
+Documentação Shine
+
+Conexão com o banco de dados Mysql/sqlite
+
+Crie um na raiz o diretório config e crie um arquivo config.json
+
+config.json
+{
+
+    "host": "localhost",
+    "dbname":"testShine",
+    "user": "root",
+    "pass":"",
+    "path":""
+}
+
+Instâncie o método abstrado 
+
+$conexao = Connection::startConn('mysql'); para mysql
+$conexao = Connection::startConn('sqlite'); para sqlite
+
+    Query's com Shine
+
+    Select 
+
+    Instâncie o objeto select e passe como parametro uma conexão
+
+$query = new Select($conexao); retorna um PDO 
+
+    Método thisOne():array
+
+Este método recebe 3 parâmetros, tabela,coluna evalor. Use este método quando
+quer selecionar apenas uma linha da tabela tabela.
+
+$query->thisOne('tabela_exemplo','id_tabela_exemplo',valor); 
+
+exemplo: SELECT * FROM tabela_exemplo WHERE id_tabela_exemplo = valor
+
+    Método all():array
+
+$query->all('tabela_exemplo');
+
+Selecionar  todas as linhas da tabela
+
+    Método write('escreva a query'):array
+
+Para uma query específica
+
+ $exemplo =  $query->write("SHOW COLUMNS FROM tabela_exemplo");
+
+Helpers
+
+    Trait TakeByIndex
+Pega um array associativo e divide em dois.
+
+$result = $this->takeByKey(array);
+Devolve um array com as Chaves do array.
+
+exemplo: echo $result[0];
+
+$result = $this->takeByValues(array):
+Devolve um array com os valores do array.
+
+exemplo: echo $result[1];
+

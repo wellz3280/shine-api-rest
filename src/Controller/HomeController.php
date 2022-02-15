@@ -4,17 +4,19 @@
 use PDO;
 use Weliton\ApiShine\Helper\RenderHtml;
 use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
+use Weliton\ApiShine\Shine\Infra\Persistance\Select;
 
 class HomeController implements InterfaceController
 {
     use RenderHtml;
-
+    private PDO $pdo;
     public function request(): void
     {   
-        $conn = Connection::connMysql();
-        $sql = "show tables";
-        $stmt = $conn->query($sql);
-        $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+        $pdo = Connection::startConn('mysql');
+        $query = new Select($pdo); 
+        
+        $result = $query->write("show tables");
+        
         
         echo $this->html('/site/home.php',[
             'table' => $result,

@@ -1,32 +1,29 @@
 <?php
     namespace Weliton\ApiShine\Shine\Infra\Persistance;
 
+use Exception;
 use PDO;
 use PDOException;
 
 class Connection
-{
-   
-    public static function connMysql():PDO
+{   
+    
+    public static function startConn(string $service):PDO
     {
         $json = file_get_contents(__DIR__.'/../../../../config/config.json');
         $data = json_decode($json);
-
-        try{
+  
+       if($service == "mysql"){
+            try{
             
             $conn = new PDO("mysql:host={$data->host};dbname={$data->dbname}",$data->user,$data->pass);
+            
             return $conn;
 
-        }catch(PDOException $e){
+             }catch(PDOException $e){
             echo "Erro: ".$e->getMessage();
-        }
-    }
-
-    public static function connSqlite():PDO
-    {
-        $json = file_get_contents(__DIR__.'/../../../../config/config.json');
-        $data = json_decode($json);
-        
+            }
+       }elseif ($service == "sqlite") {
         try{
             
             $conn = new PDO('sqlite:'.$data->path.$data->dbname.'.sqlite');
@@ -35,5 +32,6 @@ class Connection
          }catch(PDOException $e){
              echo "Erro: ".$e->getMessage();
          }
+       }
     }
 }
