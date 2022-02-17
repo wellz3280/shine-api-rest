@@ -8,12 +8,12 @@ use PDOException;
 class Connection
 {   
     
-    public static function startConn(string $service):PDO
+    public static function startConn():PDO
     {
         $json = file_get_contents(__DIR__.'/../../../../config/config.json');
         $data = json_decode($json);
   
-       if($service == "mysql"){
+       if($data->driver == "mysql"){
             try{
             
             $conn = new PDO("mysql:host={$data->host};dbname={$data->dbname}",$data->user,$data->pass);
@@ -23,7 +23,7 @@ class Connection
              }catch(PDOException $e){
             echo "Erro: ".$e->getMessage();
             }
-       }elseif ($service == "sqlite") {
+       }elseif ($data->driver == "sqlite") {
         try{
             
             $conn = new PDO('sqlite:'.$data->path.$data->dbname.'.sqlite');

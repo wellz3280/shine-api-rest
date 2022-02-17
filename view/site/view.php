@@ -3,7 +3,7 @@
 <nav class="nav mt-4">
   <a class="nav-link disabled" href="#"> Tabela <?= ucfirst($tituloPagina); ?></a>
   <a class="nav-link" href="#">Adicionar </a>
-  <a class="nav-link" href="/json?table=<?= $tituloPagina; ?>">Json</a>
+  <a class="nav-link" href="/json?table=<?= $tituloPagina; ?>" target="_blank">Json</a>
   
 </nav>
     <table class="table table-hover mt-3">

@@ -14,11 +14,11 @@
 <?php foreach($table as $tables): ?> 
 <tr>
       <td style="font-size: 26px;">
-        <?= $tables['Tables_in_testShine']; ?>
+        <?php echo ucfirst($tables['Tables_in_shineTest']); ?>
       </td>
       <td>
-        <a href="/view?table=<?= $tables['Tables_in_testShine']; ?>" class="btn btn-light">Vizualizar</a>
-        <a href="/view?table=<?= $tables['Tables_in_testShine']; ?>" class="btn btn-danger">Delete</a>
+        <a href="/view?table=<?= $tables['Tables_in_shineTest']; ?>" class="btn btn-light">Vizualizar</a>
+        <a href="/view?table=<?= $tables['Tables_in_shineTest']; ?>" class="btn btn-danger">Delete</a>
       </td>
 </tr>
 <?php endforeach; ?> 

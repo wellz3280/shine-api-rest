@@ -14,7 +14,7 @@ class ViewController implements InterfaceController
 
     public function request(): void
     {
-        $conn = Connection::startConn('mysql');
+        $conn = Connection::startConn();
         $table = filter_input(INPUT_GET,'table',FILTER_SANITIZE_STRING);    
         
         $query = new Select($conn);

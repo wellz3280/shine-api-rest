@@ -13,7 +13,7 @@ class JsonController implements InterfaceController
     {
         $table = filter_input(INPUT_GET,'table');
        
-        $pdo = Connection::startConn('mysql');
+        $pdo = Connection::startConn();
         $query = new Select($pdo);
         $result = $query->all($table);
 

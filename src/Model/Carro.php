@@ -6,6 +6,7 @@ use Weliton\ApiShine\Shine\Model\Model;
 
 class Carro extends Model
 {   
+    
     public function createTable(string $table, array $data):void
     {
         if($this->create($table,$data)){

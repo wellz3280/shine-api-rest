@@ -34,9 +34,9 @@ class Select
 
     }
 
-    public function write(string $writingquery):array
+    public function write(string $writingQuery):array
     {
-        $literalSql = $writingquery;
+        $literalSql = $writingQuery;
         $stmt = $this->pdo->query($literalSql);
         return $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

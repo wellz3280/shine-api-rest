@@ -1,13 +1,19 @@
 <?php
     namespace Weliton\ApiShine\Shine\Model;
 
+use PDO;
 use PDOException;
-use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
 
-abstract class Model
+class Model
 {
     protected string $table;
     protected array $data;
+    private PDO $pdo;
+
+    public function __construct(PDO $pdo)
+    {
+        $this->pdo = $pdo;
+    }
 
     private function primaryKey(array $data):string
     {   
@@ -59,6 +65,7 @@ abstract class Model
 
     protected function create(string $table, array $data):bool
     {
+
         $pk = $this->primaryKey($data);
         $varchar = $this->varchar($data);
         $int = $this->int($data);
@@ -68,11 +75,11 @@ abstract class Model
 
         $sql = $table.$pk.$varchar.$int.$double.");";
 
-        $conn = Connection::connMysql();
+        
 
         try{
 
-            $conn->exec($sql);
+            $this->pdo->exec($sql);
             return true;
             
         }catch(PDOException $e){
@@ -83,13 +90,12 @@ abstract class Model
 
     protected function drop(string $table):bool
     {
-
-        $conn = Connection::connMysql();
+        
         $sql = "DROP TABLE {$table}";
 
         try{
 
-             $conn->exec($sql);
+             $this->pdo->exec($sql);
             return true;
 
         }catch(PDOException $e){

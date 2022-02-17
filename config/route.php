@@ -8,7 +8,7 @@ use Weliton\ApiShine\Controller\ViewController;
 use Weliton\ApiShine\Controller\ViewPlusController;
 
 return[
-        '/'=> HomeController::class,
+        '/teste'=> TesteController::class,
         '/home'=> HomeController::class,
         '/json' => JsonController::class,
         '/user' => UserController::class,

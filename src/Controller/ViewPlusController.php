@@ -11,7 +11,7 @@ class  ViewPlusController implements InterfaceController
     
     public function request(): void
     {
-        $conn = Connection::startConn('mysql');
+        $conn = Connection::startConn();
         $table = filter_input(INPUT_GET,'table');
         $id = filter_input(INPUT_GET,'id');
         $coluna = filter_input(INPUT_GET,'coluna');

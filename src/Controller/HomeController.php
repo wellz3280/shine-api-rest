@@ -12,7 +12,7 @@ class HomeController implements InterfaceController
     private PDO $pdo;
     public function request(): void
     {   
-        $pdo = Connection::startConn('mysql');
+        $pdo = Connection::startConn();
         $query = new Select($pdo); 
         
         $result = $query->write("show tables");
