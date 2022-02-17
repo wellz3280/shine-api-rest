@@ -19,6 +19,7 @@ Instâncie o método abstrado
 $conexao = Connection::startConn('mysql'); para mysql
 $conexao = Connection::startConn('sqlite'); para sqlite
 
+----------------------------------------------------------------------
     Query's com Shine
 
     Select 
@@ -48,10 +49,12 @@ Para uma query específica
 
  $exemplo =  $query->write("SHOW COLUMNS FROM tabela_exemplo");
 
-Helpers
-
+ ----------------------------------------------------------------------
+ Helpers
+    
     Trait TakeByIndex
-Pega um array associativo e divide em dois.
+
+ Pega um array associativo e divide em dois.
 
 $result = $this->takeByKey(array);
 Devolve um array com as Chaves do array.
@@ -63,3 +66,57 @@ Devolve um array com os valores do array.
 
 exemplo: echo $result[1];
 
+-----------------------------------------------------------------------
+
+Criando tabelas no banco de dados Mysql
+
+.Faça com que a classe herde de Model.
+
+.crie dois metodos, um para criar a tabela e outro para exluir.
+
+.Chame os metodos da classe pai, ambos retornam um bollean.
+
+create(string,array):boll METODO CRIA UMA TEBELA
+drop(string):boll METODO EXCLUI UMA TABELA
+exemplo:
+
+class Carro extends Model {
+
+public function createTable(string $table,array $data):void
+{
+    $result = $this->create($table,$data));
+    if($result)...
+}
+
+public function dropTable(string $table):void
+{
+    $result = $this->drop($table);
+    if($result)...
+}
+}
+
+Criando Objeto .Crie dois parâmetro , nome da tabela e um array associativo
+
+obs: o array deve ser criado da seguinte forma.
+
+Os nomes das colunas da tabela devem ser as chaves e o tipo de dados os elementos do array. ["nomeColuna" => "tipo_de_dados"]
+
+$tabela = 'carros';
+
+crie o array desta forma
+
+$exemplo = [
+
+"idCarro" => "primary_key", 
+"nome" => "varchar",
+"modelo" => "varchar",
+"marca" => "varchar",
+"ano" => "int",
+"valor" => "float",
+
+]);
+Objeto $teste = new Carro();
+
+Criando a tabela. $teste->createTable($tabela,$exemplo);
+
+Excluindo a tabela. $teste->dropTable($tabela);

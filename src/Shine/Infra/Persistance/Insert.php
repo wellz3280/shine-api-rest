@@ -59,27 +59,36 @@ class Insert extends Select
 
         $query = "INSERT INTO {$table} (";
         
-        $filds = $this->getFieldsStr($table).")";
+        $filds = $this->getFieldsStr($table);
         
         $arrayFields = $this->getParamArray($filds);
         
-        $values = " VALUES ({$this->getParamStr($filds)};";
+        $values = " VALUES ({$this->getParamStr($filds)});";
         
-        echo $sql = $query.$filds.$values;
+        $sql = $query.$filds.") ".$values;
         
         $result = $this->pdo->prepare($sql);
         
         foreach(array_combine($arrayFields,$data)as $p => $v){
-            $result->bindValue("{$p}",$data,PDO::PARAM_STR);
+            
+            if(is_string($v)){
+                $result->bindValue("{$p}",$v,PDO::PARAM_STR);
+            }
+            
+            if(is_int($v)){
+                $result->bindValue("{$p}",intval($v),PDO::PARAM_INT);
+            }
+            
+            if(is_float($v)){
+                $result->bindValue("{$p}",floatval($v));
+            }
+            
+            if(is_double($v)){
+                $result->bindValue("{$p}",doubleval($v));
+            }
         }
+
         $result->execute();
-        
-        // foreach($arrayFields as $datas){
-        //     $insert->bindParam($datas,);
-        // }
 
     }   
-
-
-
 }

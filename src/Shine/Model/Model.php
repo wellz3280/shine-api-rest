@@ -54,8 +54,8 @@ class Model
     {
         $aDouble = [];
         foreach($data as $key => $values){
-            if($values == 'float'){
-                $aDouble[] = "{$key} FLOAT NOT NULL";
+            if($values == 'double'){
+                $aDouble[] = "{$key} double(10.2) NOT NULL";
             }
         }
 
