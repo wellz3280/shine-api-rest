@@ -31,7 +31,7 @@
 Vizualizar</a> |
        
          
-         <a href="/viewPlus?table=<?= $_GET['table'];?>&coluna=<?= $columnName ?>&id=<?= $datas[$columnName] ?>" class="">delele</a> |
+         <a href="/delete?table=<?= $_GET['table'];?>&parameter=<?= $columnName ?>&id=<?= $datas[$columnName] ?>" class="">delele</a> |
           <a href="" class="">update</a>
         </td>
 
