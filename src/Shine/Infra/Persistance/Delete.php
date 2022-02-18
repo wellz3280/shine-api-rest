@@ -14,12 +14,11 @@ class Delete
     public function remove(string $table,string $parameter,int $value):bool
     {   
         try{
-            $sql = "DELETE FROM {$table} WHERE  {$parameter} = :{$value};";
+            $sql = "DELETE FROM {$table} WHERE  {$parameter} = :{$parameter};";
             $stmt = $this->pdo->prepare($sql);
             $stmt->bindParam(":{$parameter}",intval($value),PDO::PARAM_INT);
 
             if($stmt->execute()){
-                echo "excluido com sucesso";
                 return true;
             }
 
