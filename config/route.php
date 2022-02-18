@@ -1,6 +1,7 @@
 <?php
 
 use Weliton\ApiShine\Controller\DeleteController;
+use Weliton\ApiShine\Controller\FormInserirLinhaController;
 use Weliton\ApiShine\Controller\HomeController;
 use Weliton\ApiShine\Controller\JsonController;
 use Weliton\ApiShine\Controller\TesteController;
@@ -15,7 +16,8 @@ return[
         '/user' => UserController::class,
         '/view' => ViewController::class,
         '/viewPlus' => ViewPlusController::class,
-        '/delete' => DeleteController::class
+        '/delete' => DeleteController::class,
+        '/adicionar' => FormInserirLinhaController::class
     ]; 
 
     
