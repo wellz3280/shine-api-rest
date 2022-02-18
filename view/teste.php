@@ -1,16 +1,18 @@
 <?php
 
 use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
+use Weliton\ApiShine\Shine\Infra\Persistance\Delete;
 use Weliton\ApiShine\Shine\Infra\Persistance\Insert;
 
 require __DIR__.'/../vendor/autoload.php';
 
-$pdo = Connection::startConn('mysql');
+$pdo = Connection::startConn();
+
 
 $insert = new Insert($pdo);
 
 $insert->doIt('carros',[
-    "argus",
+    "teste",
     "standard",
     "preto",
     "fiat",
