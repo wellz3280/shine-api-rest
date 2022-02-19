@@ -21,10 +21,11 @@ class FormInserirLinhaController implements InterfaceController
             $datas[]= $data['Field'];
             unset($datas[0]);
         }
-        
+        $qtd = count($datas);
         echo $this->html('/site/formInserirLinha.php',[
             "tituloPagina" => $table,
-            "tableField" => $datas
+            "tableField" => $datas,
+            "count" => $qtd
         ]);
     }
 }
