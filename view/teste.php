@@ -1,17 +1,12 @@
 <?php
 
+use Weliton\ApiShine\Shine\Helper\UrlParam;
 use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
 use Weliton\ApiShine\Shine\Infra\Persistance\Delete;
 use Weliton\ApiShine\Shine\Infra\Persistance\Insert;
 use Weliton\ApiShine\Shine\Infra\Persistance\Select;
 
 require __DIR__.'/../vendor/autoload.php';
-
-$pdo = Connection::startConn();
-$query = new Select($pdo);
-$result = $query->write("SHOW COLUMNS FROM carros");
-
-
 
 // $insert = new Insert($pdo);
 
