@@ -24,7 +24,7 @@ class AddController implements InterfaceController
         
         if($result){
             header("Location:/view?table={$table}");
-            $this->showMensage('success','Adidionado com Sucesso');
+            $this->showMensage('success','Adicionado com Sucesso');
         }
     }
 }
