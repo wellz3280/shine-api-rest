@@ -1,5 +1,6 @@
 <?php
 
+use Weliton\ApiShine\Controller\AddController;
 use Weliton\ApiShine\Controller\DeleteController;
 use Weliton\ApiShine\Controller\FormInserirLinhaController;
 use Weliton\ApiShine\Controller\HomeController;
@@ -17,7 +18,8 @@ return[
         '/view' => ViewController::class,
         '/viewPlus' => ViewPlusController::class,
         '/delete' => DeleteController::class,
-        '/adicionar' => FormInserirLinhaController::class
+        '/adicionar' => FormInserirLinhaController::class,
+        '/addLinha' => AddController::class
     ]; 
 
     
