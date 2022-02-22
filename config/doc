@@ -16,8 +16,7 @@ config.json
 
 Instâncie o método abstrado 
 
-$conexao = Connection::startConn('mysql'); para mysql
-$conexao = Connection::startConn('sqlite'); para sqlite
+$conexao = Connection::startConn(); 
 
 ----------------------------------------------------------------------
     Query's com Shine
@@ -49,7 +48,19 @@ Para uma query específica
 
  $exemplo =  $query->write("SHOW COLUMNS FROM tabela_exemplo");
 
- ----------------------------------------------------------------------
+    Delete
+Estancie o objeto delete.
+$delete = new Delete($conn);
+
+Chame o método remove e passe três parametros.
+$delete->remove('nome_tabela','parametro','valor');
+
+Exemplo:
+$delete->remove('usuarios','id_usuarios',6);
+
+    Insert
+
+----------------------------------------------------------------------
  Helpers
     
     Trait TakeByIndex
@@ -66,6 +77,22 @@ Devolve um array com os valores do array.
 
 exemplo: echo $result[1];
 
+    Trait UrlParam 
+Pega os parâmetros passados por Url e retorna um array.
+Os Parametros passados devem ter o mesmo nome da tabela no,
+banco de dados.
+
+<input type="text" id="name" name="coluna_do_banco" class="form-control">
+
+POST
+$values = $this->getParamPost('nome_tabela',conexao_com_banco);
+
+GET
+$values = $this->getParamPost('nome_tabela',conexao_com_banco);
+
+    Trait FlashMessage
+
+    Trait RenderHtml
 -----------------------------------------------------------------------
 
 Criando tabelas no banco de dados Mysql
