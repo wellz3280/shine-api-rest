@@ -18,6 +18,9 @@ Instâncie o método abstrado
 
 $conexao = Connection::startConn(); 
 
+Método getDbName():strig
+Devolve o nome do banco de dados
+
 ----------------------------------------------------------------------
     Query's com Shine
 

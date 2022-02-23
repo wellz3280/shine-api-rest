@@ -7,12 +7,22 @@ use PDOException;
 
 class Connection
 {   
+    private string $dbName;
+
+    public function __construct()
+    {
+        $json = file_get_contents(__DIR__.'/../../../../config/config.json');
+        $data = json_decode($json);
+        $this->dbName = $data->dbname;
+    }
+
+    
     
     public static function startConn():PDO
     {
         $json = file_get_contents(__DIR__.'/../../../../config/config.json');
         $data = json_decode($json);
-  
+        
        if($data->driver == "mysql"){
             try{
             
@@ -33,5 +43,10 @@ class Connection
              echo "Erro: ".$e->getMessage();
          }
        }
+    }
+
+    public function getDbName()
+    {
+        return $this->dbName;
     }
 }

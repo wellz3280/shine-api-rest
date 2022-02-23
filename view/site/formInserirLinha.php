@@ -13,7 +13,7 @@
         <input type="hidden" name="table" value="<?= $tituloPagina; ?>" class="form-control">
 
         <?php foreach($tableField as $fields): ?>
-            <label for="<?= $fields;?>"><?= $fields; ?></label>
+            <label style="text-transform:capitalize" for="<?= $fields;?>"><?= $fields; ?></label>
             <input type="text" id="<?= $fields;?>" name="<?= $fields;?>" class="form-control">    
         <?php endforeach; ?> 
            

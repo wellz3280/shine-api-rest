@@ -3,6 +3,7 @@
 <nav class="nav mt-4">
   <a class="nav-link disabled" href="#"> Tabela <?= ucfirst($tituloPagina); ?></a>
   <a class="nav-link" href="/adicionar?table=<?= $tituloPagina; ?>">Adicionar </a>
+  <a class="nav-link" href="#">Filtrar </a>
   <a class="nav-link" href="/json?table=<?= $tituloPagina; ?>" target="_blank">Json</a>
   
 </nav>

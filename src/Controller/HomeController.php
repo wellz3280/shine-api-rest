@@ -12,15 +12,16 @@ class HomeController implements InterfaceController
     private PDO $pdo;
     public function request(): void
     {   
+        $dbName = new Connection();
         $pdo = Connection::startConn();
         $query = new Select($pdo); 
         
-        $result = $query->write("show tables");
+        $result = $query->write("SHOW TABLES");
         
         
         echo $this->html('/site/home.php',[
             'table' => $result,
-            'tituloPagina' => 'Home'
+            'dbname' => $dbName->getDbName()
         ]);
     }
 }
