@@ -33,7 +33,7 @@ Vizualizar</a> |
        
          
          <a href="/delete?table=<?= $_GET['table'];?>&parameter=<?= $columnName ?>&id=<?= $datas[$columnName] ?>" class="">delele</a> |
-          <a href="" class="">update</a>
+          <a href="/update?table=<?= $_GET['table'];?>&parameter=<?= $columnName ?>&id=<?= $datas[$columnName] ?>" class="">update</a>
         </td>
 
 </tr>
