@@ -6,6 +6,7 @@ use PDOException;
 
 class Delete
 {
+    private PDO $pdo;
     public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;    

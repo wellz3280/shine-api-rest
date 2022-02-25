@@ -7,7 +7,7 @@
   
 </nav>
 
-<form action="/addLinha" method="post">
+<form action="/updateLinha" method="post">
         <div class="form-group">
         
         <input type="hidden" id="table" name="table" value="<?= $tituloPagina; ?>" class="form-control">
