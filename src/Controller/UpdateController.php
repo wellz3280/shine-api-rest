@@ -18,8 +18,8 @@ class UpdateController implements InterfaceController
         $table = filter_input(INPUT_POST,'table');
         
         $valuesParan = $this->getParamPost($table,$pdo);
-        $update = new Update($pdo,$table,$valuesParan);
-        $update->shine();
+        $update = new Update($pdo);
+        $update->shineUp($table,$valuesParan);
         
         if($update){
             

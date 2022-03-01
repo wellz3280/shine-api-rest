@@ -20,7 +20,7 @@ class AddController implements InterfaceController
         $values = $this->getParamPost($table,$pdo);
         unset($values[0]);
         $insert = new Insert($pdo);
-        $result = $insert->shine($table,$values);
+        $result = $insert->shineIn($table,$values);
         
         if($result){
             header("Location:/view?table={$table}");

@@ -13,23 +13,22 @@ class Update
     private array $data;
     
 
-    public function __construct(PDO $pdo, string $table,array $data)
+    public function __construct(PDO $pdo)
     {
         $this->pdo = $pdo;    
-        $this->table = $table;    
-        $this->data = $data;    
+    
     }
 
-    private function query():array
+    private function query(string $table):array
     {
         $query = new Select($this->pdo);
-        return $result = $query->write("SHOW COLUMNS FROM {$this->table}");
+        return $result = $query->write("SHOW COLUMNS FROM {$table}");
     }
 
 
-    private function param():string
+    private function param(string $table):string
     {
-        $result = $this->query();
+        $result = $this->query($table);
         $fields = [];
         foreach($result as $data){
             $fields[] = $data['Field']."=:".$data['Field'];
@@ -39,9 +38,9 @@ class Update
         return implode(',',$fields);
     }
 
-    private function condition():string
+    private function condition(string $table):string
     {
-        $param = $this->query();
+        $param = $this->query($table);
         
         $arr = [];
         foreach($param as $data){
@@ -51,9 +50,9 @@ class Update
         return $strParam =  $arr[0]."= :".$arr[0];
     }
     
-    private function bValue():array
+    private function bValue(string $table):array
     {
-        $result = $this->query();
+        $result = $this->query($table);
         $fields = [];
         foreach($result as $data){
             $fields[] = ":".$data['Field'];
@@ -63,21 +62,21 @@ class Update
         return $fields;
     }
 
-    private function sql():string
+    private function sql(string $table):string
     {   
-        $param = $this->param();
-        $condition = $this->condition();
-        return $sql = "UPDATE {$this->table} SET {$param} WHERE {$condition}";
+        $param = $this->param($table);
+        $condition = $this->condition($table);
+        return $sql = "UPDATE {$table} SET {$param} WHERE {$condition}";
 
     }
 
 
-    public function shine():bool
+    public function shineUp(string $table,array $data):bool
     {
         try{
             
-            $result = $this->pdo->prepare($this->sql());
-            foreach(array_combine($this->bValue(),$this->data) as $k => $v){
+            $result = $this->pdo->prepare($this->sql($table));
+            foreach(array_combine($this->bValue($table),$data) as $k => $v){
                 $result->bindValue($k,$v);
             }
 

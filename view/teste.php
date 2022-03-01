@@ -12,7 +12,7 @@ require __DIR__.'/../vendor/autoload.php';
 $pdo = Connection::startConn();
 $update = new Update($pdo,'alunos',[6,'valderez','corte e costura','noturno','7e','57',159.99]);
 
-$update->shine();
+$update->shineUp();
 
 // $insert = new Insert($pdo);
 

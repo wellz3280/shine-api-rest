@@ -57,7 +57,7 @@ class Insert extends Select
         return $param;
     }
     
-    public function shine(string $table,array $data):bool
+    public function shineIn(string $table,array $data):bool
     {
         try{
             $query = "INSERT INTO {$table} (";

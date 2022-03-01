@@ -62,7 +62,23 @@ Exemplo:
 $delete->remove('usuarios','id_usuarios',6);
 
     Insert
+Estancie o objeto Insert
+$insert = new Insert($pdo);
 
+Chame o Método shine.
+Shine retorna um Boolean 
+$insert->shineIn('nome_tabela',['array','com','os','valores']);
+
+Exemplo:
+$insert->shineIn('usuarios',['bob',18,'masculino']);
+
+    Update
+
+$update = new Update($pdo;
+$update->shineUp('nome_tabela',['array','com','os','valores']);
+
+Exemplo:
+$update->shineUp('usuarios',[1,'bob'18,'masculino']);
 ----------------------------------------------------------------------
  Helpers
     
