@@ -21,7 +21,7 @@ class ViewController implements InterfaceController
 
         $result = $query->all($table);
         $resultColumns =  $query->write("SHOW COLUMNS FROM {$table}");
-        $columnName = $this->takeByValue($resultColumns[0]);
+        $columnName = $this->takeByValueAssoc($resultColumns[0]);
         
         echo $this->html('/site/view.php',[
             "tituloPagina" => $table,

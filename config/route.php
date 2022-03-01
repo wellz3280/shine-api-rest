@@ -7,6 +7,7 @@ use Weliton\ApiShine\Controller\FormUpdateController;
 use Weliton\ApiShine\Controller\HomeController;
 use Weliton\ApiShine\Controller\JsonController;
 use Weliton\ApiShine\Controller\TesteController;
+use Weliton\ApiShine\Controller\UpdateController;
 use Weliton\ApiShine\Controller\UserController;
 use Weliton\ApiShine\Controller\ViewController;
 use Weliton\ApiShine\Controller\ViewPlusController;
@@ -21,7 +22,8 @@ return[
         '/delete' => DeleteController::class,
         '/adicionar' => FormInserirLinhaController::class,
         '/addLinha' => AddController::class,
-        '/update' => FormUpdateController::class
+        '/update' => FormUpdateController::class,
+        '/updateLinha' => UpdateController::class
     ]; 
 
     

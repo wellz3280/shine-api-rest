@@ -70,12 +70,12 @@ $delete->remove('usuarios','id_usuarios',6);
 
  Pega um array associativo e divide em dois.
 
-$result = $this->takeByKey(array);
+$result = $this->takeByKeyAssoc(array);
 Devolve um array com as Chaves do array.
 
 exemplo: echo $result[0];
 
-$result = $this->takeByValues(array):
+$result = $this->takeByValueAssoc(array):
 Devolve um array com os valores do array.
 
 exemplo: echo $result[1];

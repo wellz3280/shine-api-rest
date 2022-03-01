@@ -25,6 +25,7 @@
     const idColumn = '<?= $idColumn; ?>';
 
     const input = document.getElementById(idColumn);
-    input.setAttribute('disabled','disabled');
+
+    input.setAttribute('type','hidden');
 </script>
 <?php include __DIR__.'/../endHtml.php'; ?>

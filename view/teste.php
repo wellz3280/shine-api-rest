@@ -10,10 +10,10 @@ use Weliton\ApiShine\Shine\Infra\Persistance\Update;
 require __DIR__.'/../vendor/autoload.php';
 
 $pdo = Connection::startConn();
-$update = new Update($pdo,'alunos');
-
+$update = new Update($pdo,'alunos',[6,'valderez','corte e costura','noturno','7e','57',159.99]);
 
 $update->shine();
+
 // $insert = new Insert($pdo);
 
 // $insert->doIt('carros',[

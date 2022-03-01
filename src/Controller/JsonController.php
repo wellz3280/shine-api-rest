@@ -17,7 +17,7 @@ class JsonController implements InterfaceController
         $query = new Select($pdo);
         $result = $query->all($table);
 
-        $json =  json_encode($result,JSON_UNESCAPED_UNICODE);
+        $json =  json_encode([$table => $result],JSON_UNESCAPED_UNICODE);
 
         echo $this->html('/site/json.php',[
             "json" => $json

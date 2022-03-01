@@ -3,7 +3,7 @@
 
 trait TakeByIndex
 {
-    public function takeByKey(array $data):array
+    public function takeByKeyAssoc(array $data):array
     {
         $keys = [];
         foreach($data as $key => $datas){
@@ -13,7 +13,7 @@ trait TakeByIndex
         return $keys;
     }
 
-    public function takeByValue(array $data):array
+    public function takeByValueAssoc(array $data):array
     {
         $values = [];
         foreach($data as $key => $datas){
@@ -22,5 +22,6 @@ trait TakeByIndex
 
         return $values;
     }
+
 }
 
