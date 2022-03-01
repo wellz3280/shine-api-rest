@@ -28,16 +28,14 @@ class FormUpdateController implements InterfaceController
         }
 
         $values = $query->thisOne($table,$parameter,$id);
-        
-        $this->showMensage('success','Alterado com sucesso!');
-        
+       
         echo $this->html('/site/formUpdate.php',[
             "tituloPagina" => $table,
             "keys" => $keys,
-            "values" => $values
-         
+            "values" => $values,
+            "idColumn" => $keys[0]  
         ]);
 
-
+        
     }
 }

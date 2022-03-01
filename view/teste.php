@@ -5,9 +5,15 @@ use Weliton\ApiShine\Shine\Infra\Persistance\Connection;
 use Weliton\ApiShine\Shine\Infra\Persistance\Delete;
 use Weliton\ApiShine\Shine\Infra\Persistance\Insert;
 use Weliton\ApiShine\Shine\Infra\Persistance\Select;
+use Weliton\ApiShine\Shine\Infra\Persistance\Update;
 
 require __DIR__.'/../vendor/autoload.php';
 
+$pdo = Connection::startConn();
+$update = new Update($pdo,'alunos');
+
+
+$update->shine();
 // $insert = new Insert($pdo);
 
 // $insert->doIt('carros',[

@@ -21,4 +21,18 @@ trait UrlParam
         return $values;
     
     }   
+
+    public function getParamGet(string $table, PDO $pdo):array
+    {
+        $query = new Select($pdo);
+        $result = $query->write("SHOW COLUMNS FROM {$table} ");
+        
+        $values = [];
+        foreach($result as $data){
+           $values[] = filter_input(INPUT_GET,$data['Field']);
+        } 
+        
+        return $values;
+    
+    }   
 }

@@ -15,24 +15,16 @@
         <?php foreach(array_combine($keys,$values) as $k => $v): ?>
 
             <label style="text-transform:capitalize" for="<?= $k; ?>"><?= $k; ?></label>
-            <input type="text" id="<?= $k; ?>" name="<?= $k; ?>" value="<?= $v; ?>" onload="hiddenId" class="form-control">    
-        <?php endforeach; ?> 
+            <input type="text" id="<?= $k; ?>" name="<?= $k; ?>" value="<?= $v; ?>" class="form-control">    
+        <?php endforeach;  ?> 
            
         <button class="btn btn-primary mt-2">Alterar</button>
     </form>
 
 <script language="javascript">
-  
-    
-    function hiddenId(){
-        const idColumns = "<?php echo $keys[0];?>";
-        let idName = document.getElementsByName(idColumns);
-        let name = idName[0].id;
-        
-        if(idColumns === name){
-            alert("são iguais");
-        }
-    }
-    
+    const idColumn = '<?= $idColumn; ?>';
+
+    const input = document.getElementById(idColumn);
+    input.setAttribute('disabled','disabled');
 </script>
 <?php include __DIR__.'/../endHtml.php'; ?>

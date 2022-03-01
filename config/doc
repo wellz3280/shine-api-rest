@@ -91,7 +91,7 @@ POST
 $values = $this->getParamPost('nome_tabela',conexao_com_banco);
 
 GET
-$values = $this->getParamPost('nome_tabela',conexao_com_banco);
+$values = $this->getParamGet('nome_tabela',conexao_com_banco);
 
     Trait FlashMessage
 
