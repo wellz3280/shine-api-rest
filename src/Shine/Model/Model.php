@@ -19,7 +19,7 @@ class Model
     {   
         foreach($data as $key => $values){
             if($values == 'primary_key'){
-                return $pk = "{$key} INT(11) PRIMARY KEY AUTO_INCREMENT NOT NULL,";
+                return $pk = "{$key} INT(11) AUTO_INCREMENT PRIMARY KEY,";
             }
         }
     }
@@ -50,30 +50,30 @@ class Model
 
     }
 
-    private function double(array $data):string
+    private function float(array $data):string
     {
-        $aDouble = [];
+        $aFloat = [];
         foreach($data as $key => $values){
-            if($values == 'double'){
-                $aDouble[] = "{$key} double(10.2) NOT NULL";
+            if($values == 'float'){
+                $aFloat[] = "{$key} float NOT NULL";
             }
         }
 
-       return $double = implode(",",$aDouble);
+       return $float = implode(",",$aFloat);
 
     }
 
-    protected function create(string $table, array $data):bool
+    public function create(string $table, array $data):bool
     {
 
         $pk = $this->primaryKey($data);
         $varchar = $this->varchar($data);
         $int = $this->int($data);
-        $double = $this->double($data);
+        $float = $this->float($data);
 
         $table = "CREATE TABLE IF NOT EXISTS {$table} (";
 
-        $sql = $table.$pk.$varchar.$int.$double.");";
+        $sql = $table.$pk.$varchar.$int.$float.");";
 
         
 
@@ -88,7 +88,7 @@ class Model
         }
     }
 
-    protected function drop(string $table):bool
+    public function drop(string $table):bool
     {
         
         $sql = "DROP TABLE {$table}";

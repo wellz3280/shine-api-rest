@@ -6,13 +6,16 @@ use Weliton\ApiShine\Shine\Infra\Persistance\Delete;
 use Weliton\ApiShine\Shine\Infra\Persistance\Insert;
 use Weliton\ApiShine\Shine\Infra\Persistance\Select;
 use Weliton\ApiShine\Shine\Infra\Persistance\Update;
+use Weliton\ApiShine\Shine\Model\Model;
 
 require __DIR__.'/../vendor/autoload.php';
 
 $pdo = Connection::startConn();
-$update = new Update($pdo,'alunos',[6,'valderez','corte e costura','noturno','7e','57',159.99]);
 
-$update->shineUp();
+
+// $update = new Update($pdo);
+
+// $update->shineUp('alunos',[6,'valderez','corte e costura','noturno','7e','57',159.99]);
 
 // $insert = new Insert($pdo);
 
@@ -29,18 +32,18 @@ $update->shineUp();
 
 // echo "<h1>".$tituloPagina."</h1>";
 
-// $carro = new Carro($pdo);
+$carro = new Model($pdo);
 
-// $data =
-// [
+$data =
+[
     
-//     "idAlunos" => "primary_key", 
-//     "nome" => "varchar",
-//     "curso" => "varchar",
-//     "periodo" => "varchar",
-//     "turma" => "varchar",
-//     "idade" => "int",
-//     "valor" => "float",
-// ];
+    "idAlunos" => "primary_key", 
+    "nome" => "varchar",
+    "curso" => "varchar",
+    "periodo" => "varchar",
+    "turma" => "varchar",
+    "idade" => "int",
+    "valor" => "float",
+];
 
-// $carro->createTable('alunos',$data);
+$carro->create('alunos',$data);
