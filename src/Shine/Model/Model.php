@@ -68,11 +68,11 @@ class Model
 
         $pk = $this->primaryKey($data);
         $varchar = $this->varchar($data);
-        $int = $this->int($data);
+        $int = intval($this->int($data));
         $float = $this->float($data);
-
+        
         $table = "CREATE TABLE IF NOT EXISTS {$table} (";
-
+        
         $sql = $table.$pk.$varchar.$int.$float.");";
 
         
