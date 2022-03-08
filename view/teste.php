@@ -32,18 +32,18 @@ $pdo = Connection::startConn();
 
 // echo "<h1>".$tituloPagina."</h1>";
 
-$carro = new Model($pdo);
+// $carro = new Model($pdo);
 
-$data =
-[
+// $data =
+// [
     
-    "idAlunos" => "primary_key", 
-    "nome" => "varchar",
-    "curso" => "varchar",
-    "periodo" => "varchar",
-    "turma" => "varchar",
-    "idade" => "int",
-    "valor" => "float",
-];
+//     "idAlunos" => "primary_key", 
+//     "nome" => "varchar",
+//     "curso" => "varchar",
+//     "periodo" => "varchar",
+//     "turma" => "varchar",
+//     "idade" => "int",
+//     "valor" => "float",
+// ];
 
-$carro->create('alunos',$data);
+// $carro->create('alunos',$data);

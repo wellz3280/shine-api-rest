@@ -2,6 +2,7 @@
 
 use Weliton\ApiShine\Controller\AddController;
 use Weliton\ApiShine\Controller\DeleteController;
+use Weliton\ApiShine\Controller\FormCreateTableController;
 use Weliton\ApiShine\Controller\FormInserirLinhaController;
 use Weliton\ApiShine\Controller\FormUpdateController;
 use Weliton\ApiShine\Controller\HomeController;
@@ -11,6 +12,7 @@ use Weliton\ApiShine\Controller\UpdateController;
 use Weliton\ApiShine\Controller\UserController;
 use Weliton\ApiShine\Controller\ViewController;
 use Weliton\ApiShine\Controller\ViewPlusController;
+use Weliton\ApiShine\Persistance\CreateTable;
 
 return[
         '/teste'=> TesteController::class,
@@ -23,7 +25,9 @@ return[
         '/adicionar' => FormInserirLinhaController::class,
         '/addLinha' => AddController::class,
         '/update' => FormUpdateController::class,
-        '/updateLinha' => UpdateController::class
+        '/updateLinha' => UpdateController::class,
+        '/formCreate' => FormCreateTableController::class,
+        '/createTable' => CreateTable::class
     ]; 
 
     

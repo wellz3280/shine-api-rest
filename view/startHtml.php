@@ -21,7 +21,7 @@
     <ul class="navbar-nav">
     
       <li class="nav-item">
-        <a class="nav-link" href="#">Criar Banco de Dados</a>
+        <a class="nav-link" href="/formCreate">Criar Banco de Dados</a>
       </li>
  
     </ul>

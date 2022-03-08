@@ -18,6 +18,7 @@
         <?php endforeach; ?> 
            
         <button class="btn btn-primary mt-2">Salvar</button>
+        </div>
     </form>
 
 
