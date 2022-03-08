@@ -9,7 +9,7 @@
 <div class="form-group mt-2">
   
   <button id="addCampo" class="btn btn-info mb-2" >adicionar campo</button>
-  <form id="form" action="/createTable" method="get">
+  <form id="form" action="/createTable" method="post">
     
     <label style="text-transform:capitalize" class="" for="Nome da Tabela">Nome da Tabela</label>
     <input type="text" id="nameTable" name="nameTable"  class="form-control">
@@ -42,10 +42,10 @@
     function tipos(){
       const arrTipos = [
         'Selecione um Tipo',
-        'PRIMATY KEY',
-        'INT',
-        'VARCHAR',
-        'FLOAT'
+        'primary_key',
+        'int',
+        'varchar',
+        'float'
       ];
 
       return arrTipos;
@@ -81,6 +81,7 @@
 
         option.setAttribute('value',tipo[i]);
         option.setAttribute('required','required');
+     
         option.append(tipo[i]);
         select.append(option);
         
