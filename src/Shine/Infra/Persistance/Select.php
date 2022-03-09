@@ -34,6 +34,14 @@ class Select
 
     }
 
+    public function row(string $table):int
+    {
+        $sql = "SELECT * FROM {$table}";
+        $stmt = $this->pdo->query($sql);
+    
+        return $stmt->rowCount();
+    }
+
     public function write(string $writingQuery):array
     {
         $literalSql = $writingQuery;
