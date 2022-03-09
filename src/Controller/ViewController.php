@@ -20,7 +20,7 @@ class ViewController implements InterfaceController
         $query = new Select($conn);
 
         $result = $query->all($table);
-        $resultColumns =  $query->write("SHOW COLUMNS FROM {$table}");
+        $resultColumns =  $query->write("SHOW COLUMNS FROM {$table} ");
         $columnName = $this->takeByValueAssoc($resultColumns[0]);
         
         echo $this->html('/site/view.php',[
