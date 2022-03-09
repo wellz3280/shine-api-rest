@@ -14,13 +14,15 @@
     <label style="text-transform:capitalize" class="" for="Nome da Tabela">Nome da Tabela</label>
     <input type="text" id="nameTable" name="nameTable"  class="form-control">
     
-    <button type="submit" id="enviar" class="btn btn-info mt-2">enviar</button>
-    </form>
+    <input type="submit" id="enviar"  class="btn btn-info mt-2" value="enviar"/>
+  </form>
 
   </div>
 
   <script>
     
+    
+
     addCampo.addEventListener('click',(e)=>{
         let exit = true;
         let cont = 0;
