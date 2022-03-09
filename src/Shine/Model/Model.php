@@ -19,7 +19,7 @@ class Model
     {   
         foreach($data as $key => $values){
             if($values == 'primary_key'){
-                return $pk = "{$key} INT(11) AUTO_INCREMENT PRIMARY KEY,";
+                return $pk = "{$key} INT(11) AUTO_INCREMENT PRIMARY KEY";
             }
         }
     }
@@ -33,7 +33,7 @@ class Model
             }
         }
 
-       return $int = implode(",",$aInt).",";
+       return $int = implode(",",$aInt);
 
     }
 
@@ -46,7 +46,7 @@ class Model
             }
         }
 
-       return $varchar = implode(",",$aVarchar).",";
+       return $varchar = implode(",",$aVarchar);
 
     }
 
@@ -65,15 +65,22 @@ class Model
 
     public function create(string $table, array $data):bool
     {
+        $arr = [
+            $pk = $this->primaryKey($data),
+            $varchar = $this->varchar($data),
+            $int = $this->int($data),
+            $float = $this->float($data)
+        ];
 
-        $pk = $this->primaryKey($data);
-        $varchar = $this->varchar($data);
-        $int = intval($this->int($data));
-        $float = $this->float($data);
+
+        $clean = array_filter($arr);
+
+        $strValues = implode(",",$clean);
+        
         
         $table = "CREATE TABLE IF NOT EXISTS {$table} (";
         
-        $sql = $table.$pk.$varchar.$int.$float.");";
+       echo $sql = $table.$strValues.");";
 
         
 

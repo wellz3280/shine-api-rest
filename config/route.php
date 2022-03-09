@@ -13,6 +13,7 @@ use Weliton\ApiShine\Controller\UserController;
 use Weliton\ApiShine\Controller\ViewController;
 use Weliton\ApiShine\Controller\ViewPlusController;
 use Weliton\ApiShine\Controller\CreateTable;
+use Weliton\ApiShine\Controller\DropTableController;
 
 return[
         '/teste'=> TesteController::class,
@@ -27,7 +28,8 @@ return[
         '/update' => FormUpdateController::class,
         '/updateLinha' => UpdateController::class,
         '/formCreate' => FormCreateTableController::class,
-       '/createTable' => CreateTable::class
+       '/createTable' => CreateTable::class,
+       '/dropTable' => DropTableController::class
     ]; 
 
     

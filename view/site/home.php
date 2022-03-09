@@ -18,7 +18,7 @@
       </td>
       <td>
         <a href="/view?table=<?= $tables["Tables_in_{$dbname}"]; ?>" class="btn btn-light">Vizualizar</a>
-        <a href="/view?table=<?= $tables["Tables_in_{$dbname}"]; ?>" class="btn btn-danger">Delete</a>
+        <a href="/dropTable?table=<?= $tables["Tables_in_{$dbname}"]; ?>" class="btn btn-danger">Delete</a>
       </td>
 </tr>
 <?php endforeach; ?> 

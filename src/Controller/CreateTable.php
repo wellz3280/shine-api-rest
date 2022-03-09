@@ -30,8 +30,8 @@ class CreateTable implements InterfaceController
      $create->create($table,array_filter($unitArr));
      
      if($create){
-        header("Location:/home");
-        $this->showMensage('Success',"Tabela {$table} criada!");
+        header("Location:/adicionar?table={$table}");
+        // $this->showMensage('success',"Tabela {$table} criada!");
     }
 
     }
