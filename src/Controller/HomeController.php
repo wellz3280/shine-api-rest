@@ -18,10 +18,10 @@ class HomeController implements InterfaceController
         
         $result = $query->write("SHOW TABLES");
         
-        
         echo $this->html('/site/home.php',[
             'table' => $result,
-            'dbname' => $dbName->getDbName()
+            'dbname' => $dbName->getDbName(),
+            'row' => $query
         ]);
     }
 }
